@@ -1,7 +1,7 @@
 import re
 
 #Ouverture du fichier en lecture
-file = open('file2.txt',"r")
+file = open('produits.txt',"r")
 lines = file.readlines()
 
 #initialisation d'une liste vide
@@ -14,7 +14,7 @@ for line in lines:
         line.remove('')
     #Concatenation des deux chaines
     liste += line
-    print(line)
+    #print(line)
 print(liste)   
 
 #Initialisation des produits
@@ -22,9 +22,9 @@ liste2 = ['Stylo','Crayon','Trousse']
 i = 0
 while i < len(liste):
     if liste[i] in liste2:
-        print(liste[i]+ " existe dans la liste")
+        print(liste[i]+ " existe dans la liste des produits")
     else:
-        print(liste[i]+ " n'existe pas dans la liste")
+        print(liste[i]+ " n'existe pas dans la liste des produits")
     i += 2
     
        
