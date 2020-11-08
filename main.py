@@ -37,11 +37,11 @@ def displayBDD():
     cur = conn.cursor()
     querry = "SELECT * FROM magasin"
     magasinTable = cur.execute(querry).fetchall()
-    print(magasinTable)
+    #print(magasinTable)
     return magasinTable
 #--Modification de la base de données (décrementation des produits achetés)
-def updateBDD():
-    listOfProducts = openingFile()  
+def updateBDD(listOfProducts):
+    #listOfProducts = openingFile()  
     with conn:
         querry = "SELECT * FROM magasin"
         magasinTable = cur.execute(querry).fetchall()
@@ -56,14 +56,15 @@ def updateBDD():
                     WHERE produit = :product""", {'quantity':newqty, 'product':line[1]})
 
 #--Remplissage du stock pour chaque produit
-def fillStock():
+def fillStock(product):
     with conn:
-        querry = "SELECT * FROM magasin"
-        magasinTable = cur.execute(querry).fetchall()
-        for line in magasinTable :
-            newqty = 100
-            cur.execute("""UPDATE magasin SET quantite = :quantity
-            WHERE produit = :product""", {'quantity':newqty, 'product':line[1]})
+        cur.execute("SELECT * FROM magasin WHERE produit = ?", (product[0],))
+        magasinTable = cur.fetchone()
+        if magasinTable is not None:
+            cur.execute("UPDATE magasin SET quantite = ?, prix = ? WHERE produit = ?", (product[1], product[2], product[0]))
+        else:
+            cur.execute("INSERT INTO magasin VALUES (NULL, ?,?,?)",(product[0], product[1], product[2]))
+
 
 #--Envoie d'une notification si le stock d'un produit est inférieur à 20
 def notifyEmptyStock():
@@ -74,6 +75,12 @@ def notifyEmptyStock():
             if line[2] < 30:
                 print("Attention, le produit " + line[1] + " est bientot epuisé")
 
+#Recherche d'un article
+def searchArticle(product):
+    with conn:
+        cur.execute("SELECT * FROM magasin WHERE produit = ?", (product,))
+        magasinTable = cur.fetchall()
+        return magasinTable
 
 #************************* APPELS DES FONCTIONS **********************************************************
 

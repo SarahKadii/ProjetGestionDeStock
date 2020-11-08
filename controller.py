@@ -1,6 +1,7 @@
 import tkinter # conda install -c anaconda tk
 from tkinter import filedialog
 import main
+
 receipt = None
 def get_all_products(window, label_desc):
     names = ["Number  ", " Product Name ", "    Quantity     ", "   Price    "]
@@ -23,9 +24,31 @@ def charge_data_from_file(window, label_desc):
 def update_data_by_receipt(window, label):
     for widget in label.winfo_children():
             widget.destroy()
-    if receipt not None:
-        print(receipt)
-    print(receipt)
+    if receipt is not None:
+        main.updateBDD(receipt)
+        get_all_products(window, label)
+    
+def search_product(window, article_name, entry_quantity, entry_price):
+    name = article_name.get()
+    product = main.searchArticle(name)
+    if len(product) == 0:
+        label = tkinter.Label(window, text="Not exist but you can add as new...", font=("helvetica", 15, "bold"), bg="white", fg="red", borderwidth=5)
+        label.place(relx=0.75, rely=0.3)
+        window.after(2000, label.destroy) 
+        product = [[0,'',0,0]]
+    entry_quantity.delete(0, tkinter.END)
+    entry_price.delete(0, tkinter.END)
+    entry_quantity.insert(0,product[0][2])
+    entry_price.insert(0,product[0][3])
+
+def add_or_update(window, label, entry_article_name, entry_quantity, entry_price):
+    article_name = entry_article_name.get()
+    quantity = entry_quantity.get()
+    price = entry_price.get()
+    product = [article_name, quantity, price]
+    main.fillStock(product)
+    get_all_products(window, label)
+
 
 def display_datas(window, label, products, names):
     if len(products) == 0:
