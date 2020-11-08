@@ -27,5 +27,5 @@ cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('REGLE',100, 
 cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('EQUERRE',100, 1.2)")
 
 cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('RAPPORTEUR',100, 1.5)")
-
+conn.commit()
 cur.close

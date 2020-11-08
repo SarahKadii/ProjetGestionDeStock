@@ -1,4 +1,5 @@
 # -*- coding:Utf-8 -*-
+
 import re
 import sqlite3
 conn = sqlite3.connect('my.db')
@@ -31,9 +32,12 @@ def openingFile():
 
 #--Affichage de la base de données
 def displayBDD():
+    conn = sqlite3.connect('my.db')
+    cur = conn.cursor()
     querry = "SELECT * FROM magasin"
     magasinTable = cur.execute(querry).fetchall()
-    print(magasinTable)
+    #print(magasinTable)
+    return magasinTable
 #--Modification de la base de données (décrementation des produits achetés)
 def updateBDD():
     listOfProducts = openingFile()  
@@ -73,6 +77,6 @@ def notifyEmptyStock():
 #************************* APPELS DES FONCTIONS **********************************************************
 
 #Appel de la fonction de mise à jour de la BDD
-updateBDD()
+#updateBDD()
 #Affichage de la nouvelle table 
-displayBDD()
+#displayBDD()
