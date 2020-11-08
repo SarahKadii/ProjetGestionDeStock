@@ -10,8 +10,9 @@ cur = conn.cursor()
 #Initialisation d'une liste vide de produits
 listOfProducts = []
 #--Ouverture du fichier en lecture
-def openingFile():
-    file = open('products.txt',"r")
+def openingFile(path):
+    #file = open('products.txt',"r")
+    file = open(path,"r")
     lines = file.readlines()
     listOfProductsTmp = []
     for line in lines:
@@ -36,7 +37,7 @@ def displayBDD():
     cur = conn.cursor()
     querry = "SELECT * FROM magasin"
     magasinTable = cur.execute(querry).fetchall()
-    #print(magasinTable)
+    print(magasinTable)
     return magasinTable
 #--Modification de la base de données (décrementation des produits achetés)
 def updateBDD():
@@ -77,6 +78,9 @@ def notifyEmptyStock():
 #************************* APPELS DES FONCTIONS **********************************************************
 
 #Appel de la fonction de mise à jour de la BDD
+#displayBDD()
+#print("\n")
 #updateBDD()
+#print("\n")
 #Affichage de la nouvelle table 
 #displayBDD()
