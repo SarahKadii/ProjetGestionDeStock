@@ -45,7 +45,7 @@ L'application utilise deux méthodes de persistance des données.
 * Fichiers texte .TXT où sont stockées les informations de l'achat à effectuer et qui sont exécutées lors de la sélection de «Charge Receipt et puis Validate.
 
 
-### <a name="2"></a>Antes de empezar
+### <a name="2"></a>Avant de commencer
 
 Pour exécuter l'application, la première chose que vous devez installer sur votre système est Python. Vous pouvez installer la dernière version via:
 
