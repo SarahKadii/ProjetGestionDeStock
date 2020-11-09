@@ -77,7 +77,9 @@ def notifyEmptyStock():
         querry = "SELECT * FROM magasin"
         magasinTable = cur.execute(querry).fetchall()
         for line in magasinTable :
-            if line[2] < 30:
+            if line[2] == 0:
+                article_empty.append("Attention, le produit " + line[1] + " est epuisé")
+            if line[2] >= 1 and line[2] <= 10:
                 article_empty.append("Attention, le produit " + line[1] + " est bientot epuisé")
     return article_empty
 
