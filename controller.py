@@ -10,7 +10,7 @@ def get_all_products(window, label_desc):
     display_datas(window, label_desc, products, names)
     
                 #print(products)
-def charge_data_from_file(window, label_desc):
+def charge_data_from_file(window, label_desc, label_rupture, entry_rupture):
     global receipt
     names = [" Product Name ", "    Number     "]
     path = tkinter.filedialog.askopenfilename(parent=window, title='Please select a directory')
@@ -20,6 +20,9 @@ def charge_data_from_file(window, label_desc):
         receipts.append([receipt[i], receipt[i+1]])
     #display receipt articles
     display_datas(window, label_desc, receipts, names)
+    #Dispplay articles almost empty
+    rupture_info = main.notifyEmptyStock()
+    display_rupture(rupture_info, label_rupture, entry_rupture)
 
 def update_data_by_receipt(window, label):
     for widget in label.winfo_children():
@@ -70,3 +73,11 @@ def display_datas(window, label, products, names):
                     b = tkinter.Label(label, text=products[i][j], font=("Times New Roman", 11, "bold"), bg="#ECF5FF",borderwidth=2)
 
                 b.grid(row=i, column=j)
+
+def display_rupture(rupture_info, label_rupture, entry_rupture):
+    if len(rupture_info) > 0:
+        label_rupture.config(text = "Notifications...")
+        for i in range(len(rupture_info)):
+            b = tkinter.Label(entry_rupture, text=rupture_info[i], font=("Times New Roman", 11, "bold"), fg="#796400", borderwidth=2)
+            b.grid(row=i, column=0)
+

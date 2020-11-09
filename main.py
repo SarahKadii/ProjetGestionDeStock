@@ -52,6 +52,8 @@ def updateBDD(listOfProducts):
                 if listOfProducts[i] in line:
     #Initialisation de la nouvelle variable représentant la nouvelle quantité du produit après achat
                     newqty = line[2] - int(listOfProducts[i+1])
+                    if newqty < 0:
+                        newqty = 0
                     cur.execute("""UPDATE magasin SET quantite = :quantity
                     WHERE produit = :product""", {'quantity':newqty, 'product':line[1]})
 
@@ -60,6 +62,8 @@ def fillStock(product):
     with conn:
         cur.execute("SELECT * FROM magasin WHERE produit = ?", (product[0],))
         magasinTable = cur.fetchone()
+        if int(product[1]) < 0:
+            product[2] = 0
         if magasinTable is not None:
             cur.execute("UPDATE magasin SET quantite = ?, prix = ? WHERE produit = ?", (product[1], product[2], product[0]))
         else:
@@ -69,11 +73,13 @@ def fillStock(product):
 #--Envoie d'une notification si le stock d'un produit est inférieur à 20
 def notifyEmptyStock():
     with conn:
+        article_empty = []
         querry = "SELECT * FROM magasin"
         magasinTable = cur.execute(querry).fetchall()
         for line in magasinTable :
             if line[2] < 30:
-                print("Attention, le produit " + line[1] + " est bientot epuisé")
+                article_empty.append("Attention, le produit " + line[1] + " est bientot epuisé")
+    return article_empty
 
 #Recherche d'un article
 def searchArticle(product):
