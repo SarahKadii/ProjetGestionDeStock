@@ -12,7 +12,7 @@ cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('CAHIER',100,
 
 cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('STYLO',100, 1.2)")
 
-cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('GOMME',100, 1.3)")
+cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('GOMME',10, 1.3)")
 
 cur.execute("INSERT INTO magasin (produit, quantite, prix ) VALUES('CRAYON',100, 1.5)")
 

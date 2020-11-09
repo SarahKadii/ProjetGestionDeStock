@@ -17,7 +17,7 @@ def manage_checkout(window):
     head_desc.place(relx=0.42, rely=0.02)
     #Button
     button = tkinter.Button(window, text="Display articles", font=("Times New Roman", 15, "bold"), bg="#4160fd", fg='white',
-                    activebackground="#2894FF", activeforeground="white", borderwidth=2, command=lambda:controller.get_all_products(window,entry_product_desc)) # command=signup
+                    activebackground="#2894FF", activeforeground="white", borderwidth=2, command=lambda:controller.get_all_products(window, entry_product_desc, label_rupture_desc, entry_rupture_desc)) # command=signup
     button.place(relx=0.07, rely=0.17)
     #Description
     label_product_desc = tkinter.Label(window, text="Products Description", font=("helvetica", 15, "bold"), fg="black", borderwidth=5)
@@ -31,11 +31,11 @@ def manage_checkout(window):
     label_product_desc.place(relx=0.5, rely=0.12)
     #Button charge
     button = tkinter.Button(window, text="Charge Receipt", font=("Times New Roman", 12, "bold"), bg="#4160fd", fg='white',
-                    activebackground="#2894FF", activeforeground="white", borderwidth=2, command=lambda:controller.charge_data_from_file(window, entry_receipt_desc, label_rupture_desc, entry_rupture_desc)) # command=signup
+                    activebackground="#2894FF", activeforeground="white", borderwidth=2, command=lambda:controller.charge_data_from_file(window, entry_receipt_desc)) # command=signup
     button.place(relx=0.45, rely=0.17)
     #Button validate
     button = tkinter.Button(window, text="Validate", font=("Times New Roman", 12, "bold"), bg="#01814A", fg='white',
-                    activebackground="#01B468", activeforeground="white", borderwidth=2, command=lambda:controller.update_data_by_receipt(window, entry_product_desc)) # command=signup
+                    activebackground="#01B468", activeforeground="white", borderwidth=2, command=lambda:controller.update_data_by_receipt(window, entry_product_desc, label_rupture_desc, entry_rupture_desc)) # command=signup
     button.place(relx=0.6, rely=0.17)
     entry_receipt_desc = tkinter.Label(window, font=("helvetica", 15, "bold"), width=40, heigh=10, bg="#ECF5FF", fg="#003D79", borderwidth=2)
     entry_receipt_desc.place(relx=0.43, rely=0.25)
@@ -65,7 +65,7 @@ def manage_checkout(window):
     entry_price.place(relx=0.85, rely=0.40)
     #Button Update or add
     button_back = tkinter.Button(window, text="Add or Update", font=("Times New Roman", 15, "bold"), bg="#01814A", fg='white',
-                    activebackground="#01B468", activeforeground="white", borderwidth=2, command=lambda:controller.add_or_update(window, entry_product_desc, entry_article_name, entry_quantity,entry_price)) #  command=lambda:connexion(window)
+                    activebackground="#01B468", activeforeground="white", borderwidth=2, command=lambda:controller.add_or_update(window, entry_product_desc, entry_article_name, entry_quantity,entry_price, label_rupture_desc, entry_rupture_desc)) #  command=lambda:connexion(window)
     button_back.place(relx=0.83, rely=0.45)
 
     #Description de rupture de stock
