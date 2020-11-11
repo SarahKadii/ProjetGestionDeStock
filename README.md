@@ -31,7 +31,7 @@ Le programme est développé en Python et répond aux exigences suivantes:
 
 ### <a name="1"></a> Structure du programme
 
-* **main** - Paquete que incluye cuatro POJO (clases básicas de objetos), con sus respectivas propiedades privadas y métodos de acceso (_getters_) y establecimiento (_setters_) públicos.
+* **main** 
 
 | Funtion | Objectif |
 | ----- | ------- |
