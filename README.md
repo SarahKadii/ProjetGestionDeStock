@@ -13,7 +13,7 @@ Chaque produit est identifié par un nom, une quantité en stock et un prix.
 Le magasin vend 10 types de produits différents qui sont: cahier, stylo, gomme, crayon ciseaux, compas, surligneurs,
  equerre et rapporteur. Chaque produit est vendu individuellement.
   
-Le programme utilise le paradigme de la programmation orientée objet en Python et répond aux exigences suivantes:
+Le programme est développé en Python et répond aux exigences suivantes:
 
 1. Ajouter un produit au magasin
 2. Modifier l'existence du produit
@@ -31,7 +31,7 @@ Le programme utilise le paradigme de la programmation orientée objet en Python 
 
 ### <a name="1"></a> Structure du programme
 
-xxx
+
 
 ##### Persistance des données
 
@@ -108,7 +108,8 @@ Si vous recherchez un article qui n'existe pas dans la base de données, une not
 
 Le nom est unique et ne peut pas être répété ou doit être modifié, seuls la quantité et le prix peuvent être modifiés. “Not exist but you can add as new...” 
 
-![search](4_search.png)
+![search](4_search.png) 
+![add](5_add.png)
  
 
 Dans le lien suivant [Project demo Stock]( https://jmkd.fr/projects_demos/project_manage_stock.mp4), vous pouvez voir comment fonctionne le mini-magasin
@@ -119,3 +120,8 @@ Dans le lien suivant [Project demo Stock]( https://jmkd.fr/projects_demos/projec
 * Persistance des données: base de données pour stocker les produits; Fichier .TXT pour stocker les reçus (toujours avec le même nom "products.txt"
 
 
+##### **Membres du Group**
+* Sarah 
+* Jessica Henao Henao - 
+*
+*
