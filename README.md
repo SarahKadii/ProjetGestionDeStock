@@ -42,6 +42,18 @@ Le programme est développé en Python et répond aux exigences suivantes:
 | notifyEmptyStock() | Envoie d'une notification si le stock d'un produit est epuisé ou bientot epuisé. |
 | searchArticle() | Recherche d'un article. |
 
+
+* **controller** - Fonctions liées à l'interface pour obtenir une visualisation des informations, un "import main" est réalisé pour inclure les autres fonctions. 
+
+| Funtion | Objectif |
+| ----- | ------- |
+| charge_data_from_file() | |
+| update_data_by_receipt() |Afficher les produits|
+| search_product()| Chercher un produit.|
+| add_or_update() | Modification de la base de données .|
+| display_datas() | Afficher les notifications de recherche.|
+| display_rupture() | Afficher les notifications .|
+
 ##### Persistance des données
 
 L'application utilise deux méthodes de persistance des données.
