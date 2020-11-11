@@ -31,7 +31,16 @@ Le programme est développé en Python et répond aux exigences suivantes:
 
 ### <a name="1"></a> Structure du programme
 
+* **main** - Paquete que incluye cuatro POJO (clases básicas de objetos), con sus respectivas propiedades privadas y métodos de acceso (_getters_) y establecimiento (_setters_) públicos.
 
+| Funtion | Objectif |
+| ----- | ------- |
+| openingFile() | Ouverture du fichier produits.txt et lecture du contenue.|
+| displayBDD() | Affichage de la base de données.|
+| updateBDD() | Modification de la base de données (décrementation des produits achetés).|
+| fillStock() | Remplissage du stock pour chaque produit.|
+| notifyEmptyStock() | Envoie d'une notification si le stock d'un produit est epuisé ou bientot epuisé. |
+| searchArticle() | Recherche d'un article. |
 
 ##### Persistance des données
 
